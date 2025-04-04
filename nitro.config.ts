@@ -3,6 +3,8 @@ import { defineNitroConfig } from "nitropack/config";
 
 const nitroPkg = createRequire(import.meta.url)("nitropack/package.json");
 
+console.log(`🫣 ${process.env.CLOUDFLARE_API_TOKEN?.length}`);
+
 export default defineNitroConfig({
   compatibilityDate: "2025-03-01",
   srcDir: "./server",
