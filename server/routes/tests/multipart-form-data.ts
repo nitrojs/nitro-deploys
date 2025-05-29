@@ -1,5 +1,3 @@
-import fs from "node:fs";
-
 // https://github.com/nitrojs/nitro/issues/1721
 export default defineTestHandler(
   "multipart-form-data",
