@@ -4,7 +4,7 @@ const { baseURL } = useRuntimeConfig().app;
 
 const withBase = (p) => baseURL + p.replace(/^\//, "");
 
-const tests = ["api", "form-data"];
+const tests = ["api", "form-data", "multipart-form-data"];
 
 const manualTests = ["env", "node-compat", "headers"];
 
