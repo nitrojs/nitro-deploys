@@ -8,7 +8,7 @@ backend:
   path: .output/
   language:
     name: js
-    runtime: nodejs20.x
+    runtime: nodejs22.x
     packageManager: pnpm
   functions:
     - name: server
