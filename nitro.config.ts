@@ -23,18 +23,4 @@ export default defineNitroConfig({
       upload_source_maps: true,
     },
   },
-  // Experiment: runtime sourcemap support
-  unenv: {
-    polyfill: ["unenv/polyfill/source-maps"],
-  },
-  // esbuild: {
-  //   options: {
-  //     sourcesContent: true,
-  //   },
-  // },
-  // rollupConfig: {
-  //   output: {
-  //     sourcemapExcludeSources: false,
-  //   },
-  // },
 });
