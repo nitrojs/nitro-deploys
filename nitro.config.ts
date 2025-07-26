@@ -23,6 +23,11 @@ export default defineNitroConfig({
       upload_source_maps: true,
     },
   },
+  // Experiment: runtime sourcemap support
+  // unenv: {
+  //   https://github.com/unjs/unenv/pull/511
+  //   polyfill: ["unenv/polyfill/source-maps"],
+  // },
   vercel: {
     functions: {
       shouldAddSourceMapSupport: true,
