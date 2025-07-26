@@ -30,7 +30,7 @@ export default defineNitroConfig({
   // },
   vercel: {
     functions: {
-      shouldAddSourceMapSupport: true,
+      shouldAddSourcemapSupport: true,
       // environment: {
       //   NODE_OPTIONS: "--enable-source-maps",
       // },
