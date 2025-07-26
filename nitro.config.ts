@@ -23,4 +23,9 @@ export default defineNitroConfig({
       upload_source_maps: true,
     },
   },
+  vercel: {
+    functions: {
+      shouldAddSourceMapSupport: true,
+    },
+  },
 });
