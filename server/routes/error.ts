@@ -1,4 +1,4 @@
-import { defineEventHandler, createError } from "nitro/h3";
+import { defineEventHandler, createError } from "h3";
 
 export default defineEventHandler(() => {
   throw createError({

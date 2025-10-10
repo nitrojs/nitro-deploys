@@ -1,5 +1,5 @@
-import type { EventHandler } from "nitro/h3";
-import { getRequestHeader, defineEventHandler } from "nitro/h3";
+import type { EventHandler } from "h3";
+import { getRequestHeader, defineEventHandler } from "h3";
 
 export function defineTestHandler(
   name: string,

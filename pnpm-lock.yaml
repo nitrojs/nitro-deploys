@@ -17,6 +17,9 @@ importers:
       eslint-config-unjs:
         specifier: ^0.5.0
         version: 0.5.0(eslint@9.37.0(jiti@2.6.1))(typescript@5.9.3)
+      h3:
+        specifier: 2.0.1-rc.2
+        version: 2.0.1-rc.2(crossws@0.4.1(srvx@0.8.15))
       nitro:
         specifier: npm:nitro-nightly
         version: nitro-nightly@3.0.0-20251010-080341-61bb14fa(chokidar@4.0.3)
