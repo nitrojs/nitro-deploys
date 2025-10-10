@@ -1,6 +1,7 @@
+import { defineEventHandler, html } from "nitro/h3";
 import { deployments as _deployments } from "../../deployments";
 
-const { baseURL } = useRuntimeConfig().app;
+const baseURL = "/";
 
 const withBase = (p) => baseURL + p.replace(/^\//, "");
 
@@ -18,36 +19,37 @@ if (import.meta.dev) {
   });
 }
 
-const nitroVersion = useRuntimeConfig().nitroVersion;
+const nitroVersion = "3.0.0-alpha"; // useRuntimeConfig().nitroVersion;
 const commitHash = nitroVersion.split(".").pop();
 const version = nitroVersion.split("-")[0];
 const gitURL = `https://github.com/nitrojs/nitro/tree/${commitHash || `v${version}`}`;
 
 export default defineEventHandler((event) => {
-  const url = getRequestURL(event, {
-    xForwardedHost: true,
-    xForwardedProto: true,
-  }) as URL;
+  const url = event.url;
   const currentDeployment =
     deployments.find((d) => d.url.includes(url.host)) ||
     ({
       name: url.hostname + ` (unknown)`,
     } as (typeof deployments)[number]);
 
-  const stats = /* html */ `
-      <table id="perf" class="table-auto" style="color: white" ></table>
-      <script>
-      const perfNavTiming = window.performance.getEntriesByType('navigation')[0];
+  const stats = html`
+    <table id="perf" class="table-auto" style="color: white"></table>
+    <script>
+      const perfNavTiming =
+        window.performance.getEntriesByType("navigation")[0];
       const renderPerfStats = () => {
         const measure = (end, start) => {
           const diff = end - start;
           return diff >= 0 ? Math.round(diff * 1000) / 1000 + " ms" : "-";
-        }
+        };
         console.log(perfNavTiming.duration);
         const measures = {
           Protocol: perfNavTiming.nextHopProtocol,
           Transfer: perfNavTiming.transferSize + " bytes",
-          Request: measure(perfNavTiming.responseEnd, perfNavTiming.requestStart),
+          Request: measure(
+            perfNavTiming.responseEnd,
+            perfNavTiming.requestStart,
+          ),
           Duration: measure(perfNavTiming.duration, 0),
         };
         document.querySelector("#perf").innerHTML = Object.entries(measures)
@@ -71,7 +73,7 @@ export default defineEventHandler((event) => {
     return stats;
   }
 
-  return /* html */ `<!doctype html>
+  return html`<!doctype html>
   <html lang="en">
 
   <head>
@@ -146,7 +148,7 @@ export default defineEventHandler((event) => {
           <p class="text-xs text-gray-100">Generated at ${new Date().toUTCString()}</p>
             <p class="text-xs">
               <a href="${gitURL}" class="underline" target="_blank" rel="noopener">Nitro<span
-                class="text-gray-200">@${useRuntimeConfig().nitroVersion}</span>
+                class="text-gray-200">@3.0.0-nightly</span>
                 </a>
             </p>
             <p class="text-xs">

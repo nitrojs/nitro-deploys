@@ -1,12 +1,11 @@
 import { createRequire } from "node:module";
-import { defineNitroConfig } from "nitropack/config";
+import { defineNitroConfig } from "nitro/config";
 
-const nitroPkg = createRequire(import.meta.url)("nitropack/package.json");
+const nitroPkg = createRequire(import.meta.url)("nitro/package.json");
 
 export default defineNitroConfig({
   compatibilityDate: "latest",
   srcDir: "./server",
-  baseURL: "/base/",
   runtimeConfig: {
     nitroVersion: nitroPkg.version,
   },

@@ -2,7 +2,7 @@ export default eventHandler(() => {
   return {
     "process.env": safeObj(process.env),
     "process.env.TEST": process.env.TEST,
-    runtimeConfig: safeObj(useRuntimeConfig()),
+    // runtimeConfig: safeObj(useRuntimeConfig()),
   };
 });
 

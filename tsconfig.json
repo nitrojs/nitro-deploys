@@ -1,6 +1,6 @@
 {
   "extends": "./.nitro/types/tsconfig.json",
   "compilerOptions": {
-    "allowImportingTsExtensions": true
+    // "allowImportingTsExtensions": true
   }
 }
