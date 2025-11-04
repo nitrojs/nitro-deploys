@@ -2,8 +2,8 @@
   "name": "nitro-deploys",
   "private": true,
   "scripts": {
-    "build": "rollup build",
-    "dev": "rollup dev",
+    "build": "nitro build",
+    "dev": "nitro dev",
     "lint": "eslint . && prettier -c .",
     "lint:fix": "eslint --fix . && prettier -w -c .",
     "readme": "automd && pnpm lint:fix",
