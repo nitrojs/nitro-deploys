@@ -141,12 +141,6 @@ export const deployments = [
     docs: "https://nitro.unjs.io/deploy/providers/vercel",
   },
   {
-    name: "Vercel Edge",
-    url: "https://nitro-app-edge.vercel.app/",
-    dash: "https://vercel.com/",
-    docs: "https://nitro.unjs.io/deploy/providers/vercel#vercel-edge-functions",
-  },
-  {
     name: "Zeabur",
     url: "",
     dash: "https://dash.zeabur.com/",

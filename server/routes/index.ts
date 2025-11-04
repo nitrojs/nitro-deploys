@@ -1,4 +1,5 @@
 import { defineEventHandler, html } from "h3";
+import { useRuntimeConfig } from "nitro/runtime";
 import { deployments as _deployments } from "../../deployments";
 
 const baseURL = "/";
@@ -19,10 +20,8 @@ if (import.meta.dev) {
   });
 }
 
-const nitroVersion = "main"; // useRuntimeConfig().nitroVersion;
-const commitHash = nitroVersion.split(".").pop();
-const version = nitroVersion.split("-")[0];
-const gitURL = `https://github.com/nitrojs/nitro/tree/${commitHash || `v${version}`}`;
+const nitroVersion = useRuntimeConfig().nitroVersion;
+const gitURL = `https://github.com/nitrojs/nitro`;
 
 export default defineEventHandler((event) => {
   const url = event.url;
@@ -32,7 +31,7 @@ export default defineEventHandler((event) => {
       name: url.hostname + ` (unknown)`,
     } as (typeof deployments)[number]);
 
-  const stats = html`
+  const stats = /* html */ `
     <table id="perf" class="table-auto" style="color: white"></table>
     <script>
       const perfNavTiming =
@@ -70,10 +69,10 @@ export default defineEventHandler((event) => {
   `;
 
   if (url.searchParams.has("stats")) {
-    return stats;
+    return html(stats);
   }
 
-  return html`<!doctype html>
+  return html(/* html */ `<!doctype html>
   <html lang="en">
 
   <head>
@@ -149,7 +148,7 @@ export default defineEventHandler((event) => {
           <p class="text-xs text-gray-100">Generated at ${new Date().toUTCString()}</p>
             <p class="text-xs">
               <a href="${gitURL}" class="underline" target="_blank" rel="noopener">Nitro<span
-                class="text-gray-200">@3.0.0-nightly</span>
+                class="text-gray-200">@${nitroVersion}</span>
                 </a>
             </p>
             <p class="text-xs">
@@ -185,5 +184,5 @@ export default defineEventHandler((event) => {
     });
   </script>
   </html>
-  `;
+  `);
 });
