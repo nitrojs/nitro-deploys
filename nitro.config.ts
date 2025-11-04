@@ -10,7 +10,7 @@ export default defineNitroConfig({
   runtimeConfig: {
     nitroVersion: nitroPkg.version,
   },
-  // baseURL: "/test",
+  baseURL: "/base",
   publicAssets: [
     {
       baseURL: "/_dist",

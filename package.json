@@ -15,7 +15,7 @@
     "eslint": "^9.32.0",
     "eslint-config-unjs": "^0.5.0",
     "h3": "latest",
-    "nitro": "npm:nitro-nightly@3.0.1-20251104-000640-50897794",
+    "nitro": "npm:nitro-nightly@3.0.1-20251104-010239-18820e2a",
     "prettier": "^3.6.2",
     "vite": "^7.1.12"
   },
