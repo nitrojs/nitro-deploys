@@ -1,19 +1,19 @@
+import { defineTestHandler } from "../../utils/test";
+
 // https://github.com/nitrojs/nitro/issues/1721
 export default defineTestHandler(
   "multipart-form-data",
   async (event) => {
-    const formData = await readMultipartFormData(event);
-    const name = formData
-      .find((partData) => partData.name === "name")
-      ?.data.toString();
-    const rawFile = formData.find((partData) => partData.name === "file");
+    const formData = await event.req.formData();
+    const name = formData.get("name") as string;
+    const file = formData.get("file") as File;
 
     return {
       data: {
         name,
-        fileName: rawFile.filename,
-        fileType: rawFile.type,
-        fileSize: rawFile.data.byteLength,
+        fileName: file.name,
+        fileType: file.type,
+        fileSize: file.size,
       },
     };
   },

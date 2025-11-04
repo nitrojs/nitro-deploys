@@ -1,5 +1,5 @@
 import type { EventHandler } from "h3";
-import { getRequestHeader, defineEventHandler } from "h3";
+import { defineEventHandler, html } from "h3";
 
 export function defineTestHandler(
   name: string,
@@ -11,42 +11,46 @@ export function defineTestHandler(
 ) {
   return defineEventHandler(async (event) => {
     // Client
-    if (getRequestHeader(event, "accept").includes("text/html")) {
-      return /* html */ `
+    if (event.req.headers.get("accept")?.includes("text/html")) {
+      return html`
         <pre id="logs"></pre>
-        <hr>
-        <a href="https://github.com/nitrojs/nitro-deploys/blob/main/server/routes/tests/${name}.ts" target="_blank">view source</a>
+        <hr />
+        <a
+          href="https://github.com/nitrojs/nitro-deploys/blob/main/server/routes/tests/${name}.ts"
+          target="_blank"
+          >view source</a
+        >
         <script type="module">
           // Log utils
-          const logs = document.getElementById('logs');
+          const logs = document.getElementById("logs");
           const log = (text) => {
             console.log(text);
-            logs.innerHTML += '<div>' + text + '</div>';
+            logs.innerHTML += "<div>" + text + "</div>";
             // Send to iframe parent
             window.parent.postMessage({
-              test: '${name}',
+              test: "${name}",
               message: text,
             });
-          }
+          };
 
           // Assert util
           const assert = (condition, message) => {
             if (!condition) {
               throw new Error(message);
             }
-          }
+          };
 
           // Test impl
           const _test = ${clientHandler.toString()};
 
           // Run test
-          log('⏳ Running test: ${name}');
+          log("⏳ Running test: ${name}");
           try {
             await _test({ assert, log });
-            log('✅ PASS');
+            log("✅ PASS");
           } catch (error) {
             log(error.stack);
-            log('❌ FAIL');
+            log("❌ FAIL");
           }
         </script>
       `;

@@ -1,5 +1,7 @@
+import { eventHandler } from "h3";
+
 export default eventHandler((event) => {
-  setResponseHeader(event, "Content-Type", "text/html; charset=utf-8");
+  event.res.headers.set("Content-Type", "text/html; charset=utf-8");
 
   const encoder = new TextEncoder();
 

@@ -2,21 +2,22 @@
   "name": "nitro-deploys",
   "private": true,
   "scripts": {
-    "build": "nitro build",
-    "dev": "nitro dev",
-    "dev:prepare": "nitro prepare",
+    "build": "vite build",
+    "dev": "vite dev",
     "lint": "eslint . && prettier -c .",
     "lint:fix": "eslint --fix . && prettier -w -c .",
     "readme": "automd && pnpm lint:fix",
     "test": "pnpm lint"
   },
   "devDependencies": {
+    "@types/node": "^24.10.0",
     "automd": "^0.4.0",
     "eslint": "^9.32.0",
     "eslint-config-unjs": "^0.5.0",
-    "h3": "2.0.1-rc.2",
-    "nitro": "npm:nitro-nightly",
-    "prettier": "^3.6.2"
+    "h3": "latest",
+    "nitro": "npm:nitro-nightly@3.0.1-20251104-000640-50897794",
+    "prettier": "^3.6.2",
+    "vite": "^7.1.12"
   },
   "packageManager": "pnpm@10.13.1",
   "engines": {

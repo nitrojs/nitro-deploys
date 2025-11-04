@@ -3,7 +3,7 @@ import { deployments } from "./index";
 
 const baseURL = "/";
 
-const getURL = (p) => baseURL + p.replace(/^\//, "");
+const getURL = (p: string) => baseURL + p.replace(/^\//, "");
 
 export default defineEventHandler(() => {
   return html`<!doctype html>
@@ -13,7 +13,7 @@ export default defineEventHandler(() => {
         <title>Nitro Test Deployments</title>
         <link rel="icon" href="/nitro.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="${getURL("/_dist/tailwind@3.4.5.js")}"></script>
+        <script src="${getURL("/_dist/tailwind@3.4.17.js")}"></script>
       </head>
       <body class="bg-neutral-900">
         <div class="grid grid-cols-3 h-screen">

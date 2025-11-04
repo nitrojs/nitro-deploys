@@ -3,7 +3,7 @@ import { deployments as _deployments } from "../../deployments";
 
 const baseURL = "/";
 
-const withBase = (p) => baseURL + p.replace(/^\//, "");
+const withBase = (p: string) => baseURL + p.replace(/^\//, "");
 
 const tests = ["api", "form-data", "multipart-form-data", "sourcemap"];
 
@@ -19,7 +19,7 @@ if (import.meta.dev) {
   });
 }
 
-const nitroVersion = "3.0.0-alpha"; // useRuntimeConfig().nitroVersion;
+const nitroVersion = "main"; // useRuntimeConfig().nitroVersion;
 const commitHash = nitroVersion.split(".").pop();
 const version = nitroVersion.split("-")[0];
 const gitURL = `https://github.com/nitrojs/nitro/tree/${commitHash || `v${version}`}`;
@@ -81,7 +81,8 @@ export default defineEventHandler((event) => {
     <title>Nitro Test Deployment</title>
     <link rel="icon" href="${withBase("/nitro.svg")}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="${withBase("/_dist/tailwind@3.4.5.js")}"></script>
+    <!-- <script src="${withBase("/_dist/tailwind@3.4.17.js")}"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
   <body class="bg-neutral-900">

@@ -1,3 +1,5 @@
+import { defineTestHandler } from "../../utils/test";
+
 // https://github.com/nitrojs/nitro/issues/1721
 export default defineTestHandler(
   "api",

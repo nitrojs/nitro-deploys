@@ -1,6 +1,8 @@
+import { eventHandler } from "h3";
+
 export default eventHandler(() => {
   return {
-    "process.env": safeObj(process.env),
+    "process.env": safeObj(process.env as any),
     "process.env.TEST": process.env.TEST,
     // runtimeConfig: safeObj(useRuntimeConfig()),
   };
