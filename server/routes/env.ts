@@ -1,4 +1,4 @@
-import { eventHandler } from "h3";
+import { eventHandler } from "nitro/h3";
 
 export default eventHandler(() => {
   return {

@@ -1,8 +1,8 @@
-import { defineEventHandler, html } from "h3";
-import { useRuntimeConfig } from "nitro/runtime";
+import { defineEventHandler, html } from "nitro/h3";
+import { useRuntimeConfig } from "nitro/runtime-config";
 import { deployments as _deployments } from "../../deployments";
 
-const baseURL = "/";
+const baseURL = "/base/";
 
 const withBase = (p: string) => baseURL + p.replace(/^\//, "");
 
@@ -80,8 +80,8 @@ export default defineEventHandler((event) => {
     <title>Nitro Test Deployment</title>
     <link rel="icon" href="${withBase("/nitro.svg")}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- <script src="${withBase("/_dist/tailwind@3.4.17.js")}"></script> -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="${withBase("/_dist/tailwind@3.4.17.js")}"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   </head>
 
   <body class="bg-neutral-900">

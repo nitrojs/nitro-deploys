@@ -1,4 +1,4 @@
-import { readFormData } from "h3";
+import { readFormData } from "nitro/h3";
 import { defineTestHandler } from "../../utils/test";
 
 // https://github.com/nitrojs/nitro/issues/1721

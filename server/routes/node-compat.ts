@@ -2,7 +2,7 @@ import nodeAsyncHooks from "node:async_hooks";
 import nodeCrypto from "node:crypto";
 import nodePerfHooks from "node:perf_hooks";
 import nodeEvents from "node:events";
-import { eventHandler } from "h3";
+import { eventHandler } from "nitro/h3";
 
 const nodeCompatTests = {
   globals: {

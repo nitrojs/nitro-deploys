@@ -1,4 +1,4 @@
-import { defineEventHandler, html } from "h3";
+import { defineEventHandler, html } from "nitro/h3";
 import { deployments } from "./index";
 
 const baseURL = "/";

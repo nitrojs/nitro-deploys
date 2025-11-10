@@ -14,10 +14,9 @@
     "automd": "^0.4.0",
     "eslint": "^9.32.0",
     "eslint-config-unjs": "^0.5.0",
-    "h3": "latest",
-    "nitro": "npm:nitro-nightly@3.0.1-20251104-223815-3402cc78",
+    "nitro": "npm:nitro-nightly@3.0.1-20251110-102933-36971ba8",
     "prettier": "^3.6.2",
-    "vite": "npm:rolldown-vite@7.2.0-beta.2"
+    "vite": "npm:rolldown-vite@7.2.2"
   },
   "packageManager": "pnpm@10.13.1",
   "engines": {

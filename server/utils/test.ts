@@ -1,5 +1,5 @@
-import type { EventHandler } from "h3";
-import { defineEventHandler, html } from "h3";
+import type { EventHandler } from "nitro/h3";
+import { defineEventHandler, html } from "nitro/h3";
 
 export function defineTestHandler(
   name: string,
