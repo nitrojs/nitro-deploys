@@ -1,7 +1,7 @@
 zerops:
   - setup: app
     build:
-      base: nodejs@20
+      base: nodejs@latest
       envVariables:
         SERVER_PRESET: zerops
       buildCommands:
@@ -10,7 +10,7 @@ zerops:
       deployFiles:
         - .output/~
     run:
-      base: nodejs@20
+      base: nodejs@latest
       ports:
         - port: 3000
           httpSupport: true

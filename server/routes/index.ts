@@ -1,5 +1,5 @@
 import { defineEventHandler, html } from "nitro/h3";
-import { useRuntimeConfig } from "nitro/runtime-config";
+import { version as nitroVersion } from "nitro/meta";
 import { deployments as _deployments } from "../../deployments";
 
 const baseURL = "/base/";
@@ -20,7 +20,6 @@ if (import.meta.dev) {
   });
 }
 
-const nitroVersion = useRuntimeConfig().nitroVersion;
 const gitURL = `https://github.com/nitrojs/nitro`;
 
 export default defineEventHandler((event) => {
