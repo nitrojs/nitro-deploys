@@ -1,19 +1,9 @@
-import { defineNitroConfig } from "nitro/config";
+import { defineConfig } from "nitro";
 
-export default defineNitroConfig({
-  compatibilityDate: "latest",
+export default defineConfig({
   serverDir: "./server",
-  imports: {},
   baseURL: "/base",
   publicAssets: [
-    {
-      baseURL: "/_dist",
-      dir: "./public/_dist",
-      maxAge: 60 * 60 * 24 * 365,
-    },
+    { baseURL: "/_dist", dir: "./public/_dist", maxAge: 60 * 60 * 24 * 365 },
   ],
-  // Experiment: runtime sourcemap support
-  unenv: {
-    polyfill: ["unenv/polyfill/source-maps"],
-  },
 });
