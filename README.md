@@ -17,6 +17,7 @@ Continues [Nitro](https://nitro.unjs.io/) deployments for end-to-end testing dep
 - Deno Deploy ([docs](https://nitro.unjs.io/deploy/providers/deno-deploy) | [deployment](https://nitro.deno.dev/base/) )
 - DigitalOcean ([docs](https://nitro.unjs.io/deploy/providers/digitalocean) | ~~deployment~~ )
 - Edgio ([docs](https://nitro.unjs.io/deploy/providers/edgio) | ~~deployment~~ )
+- EdgeOne Pages ([docs](https://nitro.build/deploy/providers/edgeone) | [deployment](https://nitro-deploys-jfs88oouc7.edgeone.devbase/) )
 - Firebase Hosting ([docs](https://nitro.unjs.io/deploy/providers/firebase) | ~~deployment~~ )
 - Firebase App Hosting ([docs](https://nitro.unjs.io/deploy/providers/firebase) | [deployment](https://nitro-app--nitro-949b8.europe-west4.hosted.app/base/) )
 - Flightcontrol ([docs](https://nitro.unjs.io/deploy/providers/flightcontrol) | ~~deployment~~ )
