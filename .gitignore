@@ -11,3 +11,4 @@ dist
 .vercel
 .apphosting
 .wrangler
+.edgeone
