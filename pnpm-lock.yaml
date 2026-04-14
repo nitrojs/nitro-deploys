@@ -3448,7 +3448,7 @@ packages:
     resolution: {integrity: sha512-Gs0xRPpUm2nDkqbi40NJ9g7qDIcjcJzgExiydnq6LAyqhI2jfno8wG3NKTL+IiJsx799UHOb1CnSd4Wg4SG4Pw==}
 
   nitro@file:nitro.tgz:
-    resolution: {integrity: sha512-55qpniaC/ibx8VbaOPQktw4SXX5XLM4HVqgU8zEzGIpTdvmzFEnCRKzps18EGu07fyLQ+Ayuo0cVf1fl2fMmaQ==, tarball: file:nitro.tgz}
+    resolution: {integrity: sha512-Cu9byev+w6S2wlxZlmcgn/PbPqJ4PZbu1PRnjT61s96vhVb+7itEYN/6P+koNa0P8oRxN9G8Qp2RR+191m0x6g==, tarball: file:nitro.tgz}
     version: 3.0.260311-beta
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
