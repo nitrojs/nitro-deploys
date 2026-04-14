@@ -13,9 +13,7 @@ export default defineTestHandler(
   async ({ assert }) => {
     const formData = new FormData();
     formData.append("name", "John Doe");
-    const res = await fetch("", { method: "POST", body: formData }).then(
-      (res) => res.json(),
-    );
+    const res = await fetch("", { method: "POST", body: formData }).then((res) => res.json());
     assert(res.data.name === "John Doe", `Unexpected response: ${res.data}`);
   },
 );

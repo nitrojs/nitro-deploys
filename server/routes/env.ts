@@ -11,7 +11,5 @@ export default eventHandler(() => {
 const tokenRe = /password|token|key|secret/i;
 
 function safeObj(env: Record<string, string> = {}) {
-  return Object.fromEntries(
-    Object.entries(env).filter(([key]) => !tokenRe.test(key)),
-  );
+  return Object.fromEntries(Object.entries(env).filter(([key]) => !tokenRe.test(key)));
 }

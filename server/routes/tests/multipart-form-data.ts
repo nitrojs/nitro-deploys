@@ -26,13 +26,8 @@ export default defineTestHandler(
     const file = new Blob([rawFile], { type: "application/pdf" });
     formData.append("file", file, "data.pdf");
 
-    const res = await fetch("", { method: "POST", body: formData }).then(
-      (res) => res.json(),
-    );
+    const res = await fetch("", { method: "POST", body: formData }).then((res) => res.json());
     assert(res.data.name === "John Doe", `Unexpected response: ${res.data}`);
-    assert(
-      res.data.fileSize === rawFile.byteLength,
-      `Unexpected response: ${res.data}`,
-    );
+    assert(res.data.fileSize === rawFile.byteLength, `Unexpected response: ${res.data}`);
   },
 );
