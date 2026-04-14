@@ -12,3 +12,9 @@ dist
 .apphosting
 .wrangler
 .edgeone
+
+# Tencent Cloud EdgeOne
+.env
+.edgeone/*
+.tef_dist/*
+  
