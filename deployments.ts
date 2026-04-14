@@ -67,6 +67,12 @@ export const deployments = [
     docs: "https://nitro.unjs.io/deploy/providers/edgio",
   },
   {
+    name: "EdgeOne Pages",
+    url: "https://nitro-deploys-jfs88oouc7.edgeone.dev",
+    dash: "https://edgeone.ai/products/pages",
+    docs: "https://nitro.build/deploy/providers/edgeone",
+  },
+  {
     name: "Firebase Hosting",
     url: "",
     dash: "https://console.firebase.google.com/",
