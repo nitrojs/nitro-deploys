@@ -6,6 +6,11 @@ console.log(process.env)
 export default defineConfig({
   plugins: [nitro()],
   nitro: {
-    preset: "edgeone-pages"
+    preset: "edgeone-pages",
+        output: {
+      dir: "{{ rootDir }}/.edgeone",
+      serverDir: "{{ output.dir }}/cloud-functions/ssr-node",
+      publicDir: "{{ output.dir }}/assets/{{ baseURL }}",
+    },
   }
 });
