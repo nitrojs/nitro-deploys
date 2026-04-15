@@ -18,8 +18,8 @@ importers:
         specifier: ^0.6.2
         version: 0.6.2(eslint@10.2.0(jiti@2.6.1))(typescript@5.9.3)
       nitro:
-        specifier: npm:nitro-nightly@3.0.1-20260414-233942-47fd7691
-        version: nitro-nightly@3.0.1-20260414-233942-47fd7691(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.2.0)(jiti@2.6.1)(vite@8.0.8(@types/node@25.6.0)(jiti@2.6.1))
+        specifier: 3.0.260415-beta
+        version: 3.0.260415-beta(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.2.0)(jiti@2.6.1)(vite@8.0.8(@types/node@25.6.0)(jiti@2.6.1))
       oxfmt:
         specifier: ^0.45.0
         version: 0.45.0
@@ -1282,8 +1282,8 @@ packages:
   nf3@0.3.16:
     resolution: {integrity: sha512-Gs0xRPpUm2nDkqbi40NJ9g7qDIcjcJzgExiydnq6LAyqhI2jfno8wG3NKTL+IiJsx799UHOb1CnSd4Wg4SG4Pw==}
 
-  nitro-nightly@3.0.1-20260414-233942-47fd7691:
-    resolution: {integrity: sha512-B38YbatQ+eT0fft2B3q4DX0+Hb3QvJU8aBHKCg/qJPpXX2ivK3VuP7skIJ+4tl3zCeNEgrqtqvU1Rak5QOsTiA==}
+  nitro@3.0.260415-beta:
+    resolution: {integrity: sha512-J0ntJERWtIdvweZdmkCiF8eOFvP9fIAJR2gpeIDrHbAlYavK41WQfADo/YoZ/LF7RMTZBiPaH/pt2s/nPru9Iw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -2865,7 +2865,7 @@ snapshots:
 
   nf3@0.3.16: {}
 
-  nitro-nightly@3.0.1-20260414-233942-47fd7691(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.2.0)(jiti@2.6.1)(vite@8.0.8(@types/node@25.6.0)(jiti@2.6.1)):
+  nitro@3.0.260415-beta(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.2.0)(jiti@2.6.1)(vite@8.0.8(@types/node@25.6.0)(jiti@2.6.1)):
     dependencies:
       consola: 3.4.2
       crossws: 0.4.5(srvx@0.11.15)
