@@ -11,16 +11,16 @@
     "test": "pnpm lint"
   },
   "devDependencies": {
-    "@types/node": "^25.6.0",
+    "@types/node": "^25.9.2",
     "automd": "^0.4.3",
     "eslint-config-unjs": "^0.6.2",
-    "nitro": "3.0.260415-beta",
-    "oxfmt": "^0.45.0",
-    "oxlint": "^1.60.0",
-    "vite": "^8.0.8"
+    "nitro": "3.0.260603-beta",
+    "oxfmt": "^0.53.0",
+    "oxlint": "^1.68.0",
+    "vite": "^8.0.16"
   },
   "engines": {
     "node": ">=22"
   },
-  "packageManager": "pnpm@10.33.0"
+  "packageManager": "pnpm@11.5.2"
 }
