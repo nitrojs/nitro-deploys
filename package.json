@@ -8,7 +8,8 @@
     "lint": "oxlint && oxfmt --check",
     "fmt": "oxlint --fix && oxfmt",
     "readme": "automd && pnpm fmt",
-    "test": "pnpm lint"
+    "test": "pnpm lint",
+    "validate": "node scripts/validate.ts && pnpm readme"
   },
   "devDependencies": {
     "@types/node": "^25.9.2",

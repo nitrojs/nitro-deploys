@@ -1,6 +1,6 @@
 import { defineEventHandler, html } from "nitro/h3";
 import { version as nitroVersion } from "nitro/meta";
-import { deployments as _deployments } from "../../deployments";
+import _deployments from "../../deployments.json";
 
 const baseURL = "/base/";
 
@@ -135,11 +135,11 @@ export default defineEventHandler((event) => {
             <select onchange="window.location.href=this.value" id="countries"
               class="mt-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
               ${deployments
-                .map((d) =>
-                  d.url && !d.broken
-                    ? /* html */ ` <option value="${d.url + baseURL.slice(1)}" ${d.url === currentDeployment.url ? "selected" : ""}>${d.name}</option>`
-                    : /* html */ `<option disabled>${d.name}</option>`,
-                )
+                .filter((d) => d.url && !d.broken)
+                .map((d) => {
+                  const status = d.outdated ? " (outdated)" : "";
+                  return /* html */ ` <option value="${d.url + baseURL.slice(1)}" ${d.url === currentDeployment.url ? "selected" : ""}>${d.name}${status}</option>`;
+                })
                 .join("\n")}
             </select>
           </div>

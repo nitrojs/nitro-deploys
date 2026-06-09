@@ -3,12 +3,19 @@ export default {
   generators: {
     deployments: {
       async generate() {
-        const { deployments } = await import("./deployments.ts");
+        const deployments = (await import("./deployments.json")).default;
         const md = deployments
-          .map(
-            (d) =>
-              `- ${d.name} ([docs](${d.docs}) | ${d.url ? `[${d.broken ? "~~deployment~~" : "deployment"}](${d.url}base/)` : `~~deployment~~`} )`,
-          )
+          .map((d) => {
+            const status = d.broken
+              ? " (broken)"
+              : d.outdated
+                ? " (outdated)"
+                : !d.url
+                  ? " (not available)"
+                  : "";
+            const link = d.url ? `[deployment](${d.url}base/)` : "~~deployment~~";
+            return `- ${d.name}${status} ([docs](${d.docs}) | ${link})`;
+          })
           .join("\n");
         return { contents: md };
       },
