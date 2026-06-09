@@ -12,6 +12,17 @@ export default defineTestHandler(
     const query = "foo=bar&hello=world";
     const url = `${protocol}${location.host}${base}/_ws?${query}`;
 
+    // Measure how long a step takes and log it with a `123.4 ms` suffix.
+    const timings: Record<string, number> = {};
+    const time = async <T>(name: string, fn: () => Promise<T>): Promise<T> => {
+      const start = performance.now();
+      const result = await fn();
+      const ms = performance.now() - start;
+      timings[name] = ms;
+      log(`${name}: ${ms.toFixed(1)} ms`);
+      return result;
+    };
+
     log("Connecting to " + url);
     const ws = new WebSocket(url);
 
@@ -43,23 +54,27 @@ export default defineTestHandler(
       return reply;
     };
 
-    await new Promise<void>((resolve, reject) => {
-      ws.addEventListener("open", () => resolve());
-      ws.addEventListener("error", () => reject(new Error("WebSocket error")));
-    });
-    log("Connected");
+    await time(
+      "connect",
+      () =>
+        new Promise<void>((resolve, reject) => {
+          ws.addEventListener("open", () => resolve());
+          ws.addEventListener("error", () => reject(new Error("WebSocket error")));
+        }),
+    );
 
     // 1. ping/pong
-    const pong = await send("ping");
-    log("ping -> " + pong);
+    const pong = await time("ping", () => send("ping"));
     assert(pong === "pong", `Unexpected ping response: ${pong}`);
 
     // 2. query params round-trip
-    const paramsRaw = await send("params");
-    log("params -> " + paramsRaw);
+    const paramsRaw = await time("params", () => send("params"));
     const params = JSON.parse(paramsRaw);
     assert(params.foo === "bar", `Unexpected foo param: ${params.foo}`);
     assert(params.hello === "world", `Unexpected hello param: ${params.hello}`);
+
+    const total = Object.values(timings).reduce((a, b) => a + b, 0);
+    log(`total: ${total.toFixed(1)} ms`);
 
     ws.close();
   },
