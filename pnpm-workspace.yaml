@@ -1,5 +1,8 @@
 allowBuilds:
   "@parcel/watcher": false
+minimumReleaseAgeExclude:
+  - crossws@0.4.6
+  - nitro-nightly@3.0.1-20260609-125735-da2a75d9
 onlyBuiltDependencies:
   - "@parcel/watcher"
   - esbuild
