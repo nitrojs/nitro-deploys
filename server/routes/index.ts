@@ -6,7 +6,16 @@ const baseURL = "/base/";
 
 const withBase = (p: string) => baseURL + p.replace(/^\//, "");
 
-const tests = ["api", "form-data", "multipart-form-data", "sourcemap"];
+const tests = [
+  "api",
+  "basic-auth",
+  "form-data",
+  "headers",
+  "meta",
+  "multipart-form-data",
+  "redirect",
+  "sourcemap",
+];
 
 const manualTests = ["env", "node-compat", "headers"];
 
