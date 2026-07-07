@@ -26,43 +26,55 @@ export default defineTestHandler(
       echo: body,
     };
   },
-  async ({ assert }) => {
+  async ({ assert, log }) => {
+    log("→ QUERY ?table=users&limit=10 (content-type: application/json)");
     const res = await fetch("?table=users&limit=10", {
       method: "QUERY",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ sql: "select * from nitro" }),
     });
 
+    log(`← status: ${res.status} ${res.statusText}`);
     assert(res.ok, `Unexpected status: ${res.status}`);
 
     // Response headers round-trip to the client (RFC 10008 §2.3, §3).
+    log(`← Accept-Query: ${res.headers.get("accept-query")}`);
     assert(
       res.headers.get("accept-query") === "application/json",
       `Unexpected Accept-Query: ${res.headers.get("accept-query")}`,
     );
+    log(`← Content-Location: ${res.headers.get("content-location")}`);
     assert(
       (res.headers.get("content-location") || "").includes("table=users"),
       `Unexpected Content-Location: ${res.headers.get("content-location")}`,
     );
 
     const data = await res.json();
+    log(`← body: ${JSON.stringify(data)}`);
+
+    log(`method seen by server: ${data.method}`);
     assert(data.method === "QUERY", `Unexpected method: ${data.method}`);
 
     // Request header round-trip (server saw the mandatory Content-Type).
+    log(`request Content-Type seen by server: ${data.contentType}`);
     assert(
       (data.contentType || "").includes("application/json"),
       `Unexpected request content-type: ${data.contentType}`,
     );
 
     // URL search params round-trip alongside the body.
+    log(`url params seen by server: ${JSON.stringify(data.params)}`);
     assert(data.params.table === "users", `Unexpected table param: ${data.params.table}`);
     assert(data.params.limit === "10", `Unexpected limit param: ${data.params.limit}`);
 
     // Body round-trip.
+    log(`body echoed by server: ${JSON.stringify(data.echo)}`);
     assert(
       data.echo?.sql === "select * from nitro",
       `Unexpected echo: ${JSON.stringify(data.echo)}`,
     );
+
+    log("all QUERY (RFC 10008) round-trips verified");
   },
   "server/handlers/query.ts",
 );
