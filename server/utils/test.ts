@@ -8,6 +8,9 @@ export function defineTestHandler(
     log: (text: string) => void;
     assert: (condition: boolean, message: string) => void;
   }) => any,
+  // Repo-relative path to the test source (defaults to the scanned `routes/tests` location).
+  // Handlers registered manually via `nitro.config` live elsewhere and can override this.
+  sourcePath: string = `server/routes/tests/${name}.ts`,
 ) {
   return defineEventHandler(async (event) => {
     // Client
@@ -16,7 +19,7 @@ export function defineTestHandler(
         <pre id="logs"></pre>
         <hr />
         <a
-          href="https://github.com/nitrojs/nitro-deploys/blob/main/server/routes/tests/${name}.ts"
+          href="https://github.com/nitrojs/nitro-deploys/blob/main/${sourcePath}"
           target="_blank"
           >view source</a
         >

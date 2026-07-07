@@ -10,6 +10,7 @@ const tests = [
   "api",
   "form-data",
   "multipart-form-data",
+  "query",
   // "sourcemap",
   "websocket",
 ];
