@@ -1,11 +1,13 @@
 allowBuilds:
   "@parcel/watcher": false
 minimumReleaseAgeExclude:
-  - crossws@0.4.6
-  - nitro-nightly@3.0.1-20260609-125735-da2a75d9
-  - env-runner@0.1.12
-  - nitro@3.0.260610-beta
-  - ocache@0.1.5
+  - crossws@0.4.12
+  - db0@0.4.0
+  - env-runner@0.2.0
+  - h3@2.0.1-rc.29
+  - nitro-nightly@3.0.1-20260821-005124-e36e7a60
+  - srvx@0.12.7
+  - unstorage@2.0.0-alpha.9
 onlyBuiltDependencies:
   - "@parcel/watcher"
   - esbuild

@@ -1,5 +1,5 @@
 import type { EventHandler } from "nitro/h3";
-import { defineEventHandler, html } from "nitro/h3";
+import { defineEventHandler, html, raw } from "nitro/h3";
 
 export function defineTestHandler(
   name: string,
@@ -18,9 +18,7 @@ export function defineTestHandler(
       return html`
         <pre id="logs"></pre>
         <hr />
-        <a
-          href="https://github.com/nitrojs/nitro-deploys/blob/main/${sourcePath}"
-          target="_blank"
+        <a href="https://github.com/nitrojs/nitro-deploys/blob/main/${sourcePath}" target="_blank"
           >view source</a
         >
         <script type="module">
@@ -44,7 +42,7 @@ export function defineTestHandler(
           };
 
           // Test impl
-          const _test = ${clientHandler.toString()};
+          const _test = ${raw(clientHandler.toString())};
 
           // Run test
           log("⏳ Running test: ${name}");

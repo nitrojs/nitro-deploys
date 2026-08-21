@@ -1,4 +1,4 @@
-import { defineEventHandler, html } from "nitro/h3";
+import { defineEventHandler, html, raw } from "nitro/h3";
 import { deployments } from "./index";
 
 const baseURL = "/";
@@ -17,17 +17,19 @@ export default defineEventHandler(() => {
       </head>
       <body class="bg-neutral-900">
         <div class="grid grid-cols-3 h-screen">
-          ${deployments
-            .filter((deployment) => deployment.url && !deployment.broken)
-            .map(
-              (deployment) => /* html */ `
+          ${raw(
+            deployments
+              .filter((deployment) => deployment.url && !deployment.broken)
+              .map(
+                (deployment) => /* html */ `
       <div class="border-t border-gray-200 text-white relative">
         <a class="absolute top-2 right-5 p-1 text-xs bg-purple-500 shadow-lg rounded-lg" href="${deployment.url}">${deployment.name}</a>
         <iframe src="${deployment.url}?stats" class="w-full h-full"></iframe>
       </div>
     `,
-            )
-            .join("")}
+              )
+              .join(""),
+          )}
         </div>
       </body>
     </html> `;

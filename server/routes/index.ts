@@ -1,4 +1,4 @@
-import { defineEventHandler, html } from "nitro/h3";
+import { defineEventHandler, html, raw } from "nitro/h3";
 import { version as nitroVersion } from "nitro/meta";
 import _deployments from "../../deployments.json";
 
@@ -75,10 +75,11 @@ export default defineEventHandler((event) => {
   `;
 
   if (url.searchParams.has("stats")) {
-    return html(stats);
+    return html(raw(stats));
   }
 
-  return html(/* html */ `<!doctype html>
+  return html(
+    raw(/* html */ `<!doctype html>
   <html lang="en">
 
   <head>
@@ -190,5 +191,6 @@ export default defineEventHandler((event) => {
     });
   </script>
   </html>
-  `);
+  `),
+  );
 });
