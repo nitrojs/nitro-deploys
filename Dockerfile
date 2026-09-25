@@ -1,7 +1,7 @@
 FROM node:alpine as BUILD
 WORKDIR /build
 COPY package.json pnpm-lock.yaml ./
-RUN corepack enable && pnpm install
+RUN npm install -fg corepack@latest && corepack enable && pnpm install
 COPY ./ ./
 RUN pnpm build
 
